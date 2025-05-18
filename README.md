@@ -2,6 +2,8 @@ RM99208 - Sofia Sprocatti Silva
 
 # patioAPI
 
+Desenvolvido para a disciplina Advanced Business Development with .NET - FIAP.
+
 ## Descrição
 
 API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e pátios, com integração ao banco de dados Oracle via Entity Framework Core. Permite operações CRUD completas, controle de posição das motos em plano cartesiano, visualização da ocupação do pátio, alertas de proximidade e segue boas práticas de documentação com Swagger/OpenAPI.
@@ -168,4 +170,3 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 
 ---
 
-Desenvolvido para a disciplina Advanced Business Development with .NET - FIAP.
