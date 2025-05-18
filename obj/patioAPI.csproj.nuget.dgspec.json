@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\l\\RiderProjects\\patioAPI\\patioAPI\\patioAPI.csproj": {}
+    "C:\\Users\\l\\Mottu-SofiaSprocatti\\patioAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\l\\RiderProjects\\patioAPI\\patioAPI\\patioAPI.csproj": {
+    "C:\\Users\\l\\Mottu-SofiaSprocatti\\patioAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\l\\RiderProjects\\patioAPI\\patioAPI\\patioAPI.csproj",
+        "projectUniqueName": "C:\\Users\\l\\Mottu-SofiaSprocatti\\patioAPI.csproj",
         "projectName": "patioAPI",
-        "projectPath": "C:\\Users\\l\\RiderProjects\\patioAPI\\patioAPI\\patioAPI.csproj",
+        "projectPath": "C:\\Users\\l\\Mottu-SofiaSprocatti\\patioAPI.csproj",
         "packagesPath": "C:\\Users\\l\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\l\\RiderProjects\\patioAPI\\patioAPI\\obj\\",
+        "outputPath": "C:\\Users\\l\\Mottu-SofiaSprocatti\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\l\\AppData\\Roaming\\NuGet\\NuGet.Config"

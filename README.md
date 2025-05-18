@@ -3,15 +3,18 @@ RM99208 - Sofia Sprocatti Silva
 # patioAPI
 
 ## Descrição
+
 API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e pátios, com integração ao banco de dados Oracle via Entity Framework Core. Permite operações CRUD completas, controle de posição das motos em plano cartesiano, visualização da ocupação do pátio, alertas de proximidade e segue boas práticas de documentação com Swagger/OpenAPI.
 
 ## Estrutura do Banco de Dados
+
 - **Filial:** tabela `filiais` (BranchId, Branch, Address, Cidade, Estado)
 - **Patio:** tabela `patios` (CourtId, CourtLocal, BranchId, Branch, AreaTotal, MaxMotos, GridRows, GridCols)
 - **Moto:** tabela `fiapmottu` no schema `fleet` (VehicleId, Plate, Model, Localization, Branch, Court)
 - **VeiculoPatio:** tabela `veiculopatio` no schema `fleet` (VehicleId, CourtId, BranchId, Position, X, Y)
 
 ## Como criar o repositório
+
 1. Crie um repositório no GitHub com o nome desejado (ex: `patioAPI`).
 2. Clone o repositório para sua máquina:
    ```sh
@@ -26,6 +29,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
    ```
 
 ## Como rodar a aplicação
+
 1. Configure a string de conexão Oracle no arquivo `appsettings.json`:
    ```json
    "ConnectionStrings": {
@@ -39,8 +43,8 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 3. Gere e aplique as migrations (criação das tabelas no Oracle):
    ```sh
    dotnet tool install --global dotnet-ef # (se necessário)
-   dotnet ef migrations add InitialCreate --project patioAPI/patioAPI.csproj
-   dotnet ef database update --project patioAPI/patioAPI.csproj
+   dotnet ef migrations add InitialCreate --project patioAPI.csproj
+   dotnet ef database update --project patioAPI.csproj
    ```
 4. Rode a aplicação:
    ```sh
@@ -51,6 +55,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 ## Rotas da API
 
 ### Filiais (filiais)
+
 - **GET /api/filiais?page=1&pageSize=20**: Lista todas as filiais (paginado)
 - **GET /api/filiais/{branchId}**: Busca filial por ID
 - **POST /api/filiais**: Cadastra nova filial
@@ -59,6 +64,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 - **DELETE /api/filiais/{branchId}**: Remove filial
 
 #### Exemplo de body para Filial
+
 ```json
 {
   "branchId": 1,
@@ -70,6 +76,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 ```
 
 ### Pátios (patios)
+
 - **GET /api/patios?page=1&pageSize=20**: Lista todos os pátios (paginado)
 - **GET /api/patios/{courtId}**: Busca pátio por ID
 - **POST /api/patios**: Cadastra novo pátio
@@ -80,6 +87,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 - **GET /api/patios/{courtId}/ocupacao**: Visualiza a ocupação do pátio (motos e posições X/Y)
 
 #### Exemplo de body para Patio (com grid)
+
 ```json
 {
   "courtId": 1,
@@ -94,6 +102,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 ```
 
 ### Motos (fleet.fiapmottu)
+
 - **GET /api/motos?page=1&pageSize=20**: Lista todas as motos (paginado)
 - **GET /api/motos/{vehicleId}**: Busca moto por ID
 - **GET /api/motos/branch/{branch}**: Busca motos por filial
@@ -103,6 +112,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 - **DELETE /api/motos/{vehicleId}**: Remove moto
 
 #### Exemplo de body para Moto
+
 ```json
 {
   "vehicleId": 1,
@@ -115,6 +125,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 ```
 
 ### Veículo no Pátio (veiculopatio)
+
 - **GET /api/veiculopatios?page=1&pageSize=20**: Lista todas as posições de motos nos pátios (paginado)
 - **GET /api/veiculopatios/{vehicleId}/{courtId}/{branchId}**: Busca posição específica
 - **POST /api/veiculopatios**: Registra posição de uma moto no pátio
@@ -124,6 +135,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 - **GET /api/veiculopatios/alerta-proximidade?courtId=1&x=2&y=3&distancia=1**: Lista motos próximas a uma posição X/Y no pátio (alerta de proximidade)
 
 #### Exemplo de body para VeiculoPatio (posição cartesiana)
+
 ```json
 {
   "vehicleId": 1,
@@ -136,10 +148,12 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 ```
 
 ## Visualização e Alertas
+
 - Use **GET /api/patios/{courtId}/ocupacao** para obter a ocupação do grid do pátio (motos e suas posições X/Y).
 - Use **GET /api/veiculopatios/alerta-proximidade?courtId=1&x=2&y=3&distancia=1** para listar motos próximas a uma posição X/Y (alerta de proximidade).
 
 ## Códigos de Retorno
+
 - 200 OK: Sucesso nas consultas
 - 201 Created: Recurso criado
 - 204 NoContent: Atualização ou remoção sem retorno
@@ -147,6 +161,7 @@ API RESTful desenvolvida em ASP.NET Core para gerenciamento de motos, filiais e 
 - 404 NotFound: Recurso não encontrado
 
 ## Observações
+
 - Certifique-se de que o Oracle está acessível e as credenciais estão corretas.
 - O projeto utiliza EF Core com migrations para versionamento do banco.
 - A documentação OpenAPI está disponível via Swagger.

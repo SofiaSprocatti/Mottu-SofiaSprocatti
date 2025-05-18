@@ -1,10 +1,12 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace patioAPI.Models
 {
-    [Table("patios")]
+    [Table("patios", Schema = "RM99208")]
     public class Patio
     {
+        [Key]
         public int CourtId { get; set; } // Identificador único do pátio
         public required string CourtLocal { get; set; } // Localização ou nome do pátio
         public int BranchId { get; set; } // Id da filial

@@ -1,10 +1,12 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace patioAPI.Models
 {
-    [Table("veiculopatio", Schema = "fleet")]
+    [Table("veiculopatio", Schema = "RM99208")]
     public class VeiculoPatio
     {
+        [Key]
         public int VehicleId { get; set; } // Id do veículo
         public int CourtId { get; set; } // Id do pátio
         public int BranchId { get; set; } // Id da filial
